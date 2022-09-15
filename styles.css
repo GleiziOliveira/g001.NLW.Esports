@@ -1,0 +1,155 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /*border box considera só os px que eu defini no max-width*/
+}
+body {
+  background-image: url(./assets/Fundo.jpg);
+  background-position: top center; /*posicionamento do fundo*/
+  background-size: 100% auto; /* tamanho da imagem, o 100% é a largura e o auto é de altura*/
+  background-repeat: no-repeat;
+  background-color: #121214;
+}
+body * {
+  font-family: "Inter", sans-serif;
+  line-height: 160%;
+}
+header {
+  padding-top: 32px; /*poder ser margin top ou padding top*/
+  height: calc(120px + 32px);
+}
+
+header div {
+  /*div não é elemento de texto e por isso algumas propriedades não funciona*/
+  width: 120px;
+  margin: auto;
+  background-image: linear-gradient(
+    90deg,
+    #9572fc 0%,
+    #43e7ad 50.52%,
+    #e2d45c 100%
+  );
+  border-radius: 50%;
+  display: flex; /*quando usa display flex ele recebe algumas própriedades*/
+  padding: 4px;
+  transition: transform 0.3s; /*Essa propriedade ira falar o tipo de transição e o tempo dela*/
+}
+
+/*hover para fazer transição quando passar o mouse em cima da imagem  */
+header div:hover {
+  transform: scale(1.1);
+}
+header div img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+ul {
+  list-style: none;
+}
+main {
+  max-width: 36.25rem;
+  width: 90%; /*o % é relativo a tela*/
+  margin: 2rem auto; /*1 valor cima e baixo o segundo valor é as laterais*/
+  display: grid;
+  gap: 24px;
+}
+
+section {
+  color: white;
+  background-image: linear-gradient(
+    90deg,
+    #9572fc 0%,
+    #43e7ad 50.52%,
+    #e2d45c 100%
+  );
+  padding-top: 4px;
+  border-radius: 10px;
+}
+
+section div {
+  background-color: #2a2634;
+  padding: 2rem;
+  padding-top: 24px;
+  border-radius: 8px;
+}
+section h2 {
+  letter-spacing: -0.47px;
+}
+
+section p {
+  letter-spacing: -0.18px;
+  color: #a1a1aa;
+}
+
+section ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+section ul li {
+  transition: transform 0.3s;
+}
+
+section ul li:hover {
+  transform: scale(1.1);
+}
+
+.gamesList img {
+  width: 90px;
+  border-radius: 8px;
+}
+
+.channelList img {
+  border-radius: 50%;
+  width: 70px;
+  border: 1px solid #443e54;
+}
+/*ANIMAÇÃO*/
+
+header div {
+  animation: fromtop 0.7s 0.4s backwards;
+  /* puxa as coisas da animação, a segunda propriedade é o tempo que ela vai durar a terceira propriedade é quanto tempo depois ela inicia e o backwards ele puxa as prorpiedades do keuframes para a div  */
+}
+
+main section {
+  animation: frombottom 0.7s backwards;
+}
+
+/*pegou o filho numero 1 da section*/
+main section:nth-child(1) {
+  animation-delay: 0;
+}
+main section:nth-child(2) {
+  animation-delay: 0.4s;
+}
+main section:nth-child(3) {
+  animation-delay: 0.8s;
+}
+
+@keyframes fromtop {
+  /*o @ serve para dar o inicio na animação*/
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes frombottom {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
